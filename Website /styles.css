@@ -11,6 +11,15 @@ body {
   text-align: center;
 }
 
+#sets {
+  background-color: #44D1C9; 
+}
+
+#items {
+  background-color: #44D1C9;
+}
+
 p, li, h2 {
   color: #feffff;
 }
+
