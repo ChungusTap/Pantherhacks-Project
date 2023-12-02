@@ -36,7 +36,7 @@ function toggleItem(index) {
 
 function addTextToList() {
     // Get the input value
-    var dateInput = prompt("Enter the date (e.g., DD/MM/YYYY):");
+    var dateInput = prompt("Enter the date (e.g., MM/DD/YYYY):");
     
     // Validate the date format (you may want to implement more robust validation)
 
