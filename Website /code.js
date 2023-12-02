@@ -1,14 +1,8 @@
-<<<<<<< Updated upstream
+
 function clearTextList() {
     // Clear all the list items
     var textList = document.getElementById("textList");
     textList.innerHTML = "";
-=======
-function myfunction(){
-    var newItem = document.getElementById("textList").children[index];
-    newItem.classList.toggle("completed");
-    
->>>>>>> Stashed changes
 }
 
 function editFunction() {
@@ -27,19 +21,10 @@ function editFunction() {
     }
 }
 
-function showListValue() {
-    var listVal = document.getElementById("listValue").value;
-    alert("Entered item: " + listVal);
-    document.getElementById("output").innerHTML = listVal;
-<<<<<<< Updated upstream
-}
-=======
-  }
 function toggleItem(index) {
     var listVar = document.getElementById("textList").children[index];
     listVar.classList.toggle("completed");
-  }
->>>>>>> Stashed changes
+}
 
 function addTextToList() {
     // Get the input value
@@ -54,23 +39,15 @@ function addTextToList() {
         // Set the text content of the list item
         listItem.textContent = inputValue;
 
+        // Add click event listener to toggle completion
         listItem.addEventListener("click", function() {
             toggleItem(Array.from(checklist.children).indexOf(listItem));
-          });
+        });
 
         // Append the list item to the ul element
-<<<<<<< Updated upstream
-        document.getElementById("textList").appendChild(listItem);
-        
-        // Clear the input field
-        document.getElementById("textInput").value = "";
-    }
-=======
         checklist.appendChild(listItem);
+
         // Clear the input field
         document.getElementById("textInput").value = "";
-        
     }
-    
->>>>>>> Stashed changes
 }
