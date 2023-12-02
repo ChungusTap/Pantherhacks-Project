@@ -27,7 +27,7 @@ function showListValue() {
   }
 function toggleItem(index) {
     var listVar = document.getElementById("textList").children[index];
-    listVar.classList.toggle("completed");
+    listItem.classList.toggle("completed");
   }
 
 function addTextToList() {
