@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> e97fa32bbca1687183bfbc12545039b59b93ac32
 function clearTextList() {
     // Clear all the list items
     var textList = document.getElementById("textList");
@@ -24,7 +20,6 @@ function editFunction() {
     }
 }
 
-<<<<<<< HEAD
 function showListValue() {
     var listVal = document.getElementById("listValue").value;
     alert("Entered item: " + listVal);
@@ -34,12 +29,6 @@ function toggleItem(index) {
     var listVar = document.getElementById("textList").children[index];
     listVar.classList.toggle("completed");
   }
-=======
-function toggleItem(index) {
-    var listVar = document.getElementById("textList").children[index];
-    listVar.classList.toggle("completed");
-}
->>>>>>> e97fa32bbca1687183bfbc12545039b59b93ac32
 
 function addTextToList() {
     // Get the input value
@@ -65,8 +54,5 @@ function addTextToList() {
         // Clear the input field
         document.getElementById("textInput").value = "";
     }
-<<<<<<< HEAD
     
-=======
->>>>>>> e97fa32bbca1687183bfbc12545039b59b93ac32
 }
