@@ -31,10 +31,23 @@ p {
   font-size: 25px
 }
 
+#text-input{
+  background-color: #DEF2F1;
+  border-width: 0px;
+}
+
+button {
+  background-color: transparent;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-color: #DEF2F1;
+  color: #DEF2F1;
+  border-width: 2px;
+}
+
 li {
   color: #feffff;
 }
-
 
 h2 {
   color: #17252A;
