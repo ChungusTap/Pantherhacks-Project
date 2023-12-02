@@ -52,6 +52,7 @@ button:hover {
 
 li {
   color: #feffff;
+  padding-top: 5px;
 }
 
 h2 {
@@ -59,6 +60,17 @@ h2 {
   font-size: 40px;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #17252A;
+}
+
+h6 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #17252A;
+}
+
 ul {
     list-style-type: none;
   }
