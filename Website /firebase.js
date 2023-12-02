@@ -8,8 +8,8 @@ firebase.analytics();
 
 // This function gets the data from the firebase database and returns array 'results' which has all the data.
 function getSummerCamps() {
-  var dbRef = db.collection("college-counseling-database");
-  var dbQuery = dbRef.orderBy("name", "asc");
+  var dbRef = db.collection("lists");
+  var dbQuery = dbRef.orderBy("tasks", "date");
 
   var dbPromise = dbQuery.get();
   return dbPromise.then(function(querySnapshot) {
