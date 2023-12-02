@@ -1,3 +1,6 @@
+function my_function(){
+    print ('Hello')
+}
 function clearTextList() {
     // Clear all the list items
     var textList = document.getElementById("textList");
@@ -27,7 +30,8 @@ function showListValue() {
   }
 function toggleItem(index) {
     var listVar = document.getElementById("textList").children[index];
-    listItem.classList.toggle("completed");
+    listVar.classList.toggle("completed");
+
   }
 
 function addTextToList() {
