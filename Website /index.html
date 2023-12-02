@@ -1,31 +1,31 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Task Manager</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="code.js"></script>
+    <script src="code.js" defer></script>
 </head>
 <body>
-    <p id="button">Welcome to Our Website</p>
-    <button type="button" onclick="myfunction()"> Click here </button>
-    <div id="myDIV" class="header">
-        <h2>My To Do List</h2>
-        <input type="text" id="listValue" placeholder="Title...">
-        <button type="button" onclick="myfunction()"> Add </button>
+    <div class="container">
+        <div class="header">
+            <h1>My To-Do List</h1>
+            <input type="text" id="taskInput" placeholder="New task...">
+            <button onclick="addTask()">Add</button>
+        </div>
+        
+        <ul id="taskList">
+            <li>Hit the gym <span class="deleteBtn" onclick="deleteTask(this)"></span></li>
+            <li class="checked">Pay bills <span class="deleteBtn" onclick="deleteTask(this)"></span></li>
+            <li>Meet George <span class="deleteBtn" onclick="deleteTask(this)"></span></li>
+            <li>Buy eggs <span class="deleteBtn" onclick="deleteTask(this)"></span></li>
+            <li>Read a book <span class="deleteBtn" onclick="deleteTask(this)"></span></li>
+            <li>Organize office <span class="deleteBtn" onclick="deleteTask(this)"></span></li>
+        </ul>
     </div>
-    
-    <ul id="myUL">
-        <li>Hit the gym</li>
-        <li class="checked">Pay bills</li>
-        <li>Meet George</li>
-        <li>Buy eggs</li>
-        <li>Read a book</li>
-        <li>Organize office</li>
-    </ul>
 </body>
 <footer>
-
 </footer>
 </html>
+
