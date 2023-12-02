@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+<script>
+    function myfunction(){
+        document.getElementById("button").innerHTML = "Welcome";
+    }
+    
+</script>
+</head>
+
+<body>
+    <p id="button">Welcome to Our Website</p>
+    <button type="button" onclick="myfunction()"> Click here </button>
+    <div id="myDIV" class="header">
+        <h2>My To Do List</h2>
+        <input type="text" id="myInput" placeholder="Title...">
+        <span onclick="newElement()" class="addBtn">Add</span>
+      </div>
+      
+      <ul id="myUL">
+        <li>Hit the gym</li>
+        <li class="checked">Pay bills</li>
+        <li>Meet George</li>
+        <li>Buy eggs</li>
+        <li>Read a book</li>
+        <li>Organize office</li>
+      </ul>
+</body>
