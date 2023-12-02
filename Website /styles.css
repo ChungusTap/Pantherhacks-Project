@@ -6,7 +6,11 @@
     margin: 10px;
   }
 
+  body {
+    background-color: #4B0082;
+  }
+  
 
 p {
-    color: darkorchid;
+    color: gold;
 }
