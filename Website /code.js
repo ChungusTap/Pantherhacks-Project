@@ -27,7 +27,9 @@ function showListValue() {
   }
 function toggleItem(index) {
     var listVar = document.getElementById("textList").children[index];
-    listItem.classList.toggle("completed");
+    listVar.classList.toggle("completed");
+
+    console.log("jay is gay");
   }
 
 function addTextToList() {
