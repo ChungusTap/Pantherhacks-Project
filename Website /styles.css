@@ -36,7 +36,7 @@ p {
   border-width: 0px;
 }
 
-.roundedbutton {
+button {
   background-color: transparent;
   font-family: Arial, Helvetica, sans-serif;
   color: #17252A;
@@ -44,10 +44,17 @@ p {
   border-style: solid;
   border-radius: 5px;
   border-width: 1.5px;
+  color: #DEF2F1;
 }
 
 button:hover {
-  background-color: #DEF2F1
+  background-color: #DEF2F1;
+  color: #17252A;
+}
+
+#newList {
+  color: #17252A;
+  border-color: #17252A;
 }
 
 li {
