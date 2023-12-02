@@ -1,20 +1,11 @@
 
   body {
-<<<<<<< HEAD
-    background-color: #3aafa9;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-=======
     background-color: #DEF2F1;
     margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
->>>>>>> bba54f9a397b3a0a2e1760accb69c2c4c815355d
   }
   
 
@@ -23,13 +14,6 @@ p {
 }
 
 #sets {
-<<<<<<< HEAD
-  background-color: #44D1C9; 
-}
-
-#items {
-  background-color: #44D1C9;
-=======
   background-color: rgb(58, 175, 169 / 100%); 
   width: 25%;
   height: 100%;
@@ -45,7 +29,6 @@ p {
   margin-left: 10px;
   padding: 20px;
   font-size: 25px
->>>>>>> bba54f9a397b3a0a2e1760accb69c2c4c815355d
 }
 
 li {
