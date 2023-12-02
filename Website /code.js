@@ -1,3 +1,9 @@
+function clearTextList() {
+    // Clear all the list items
+    var textList = document.getElementById("textList");
+    textList.innerHTML = "";
+}
+
 function editFunction() {
     // Get all list items
     var listItems = document.getElementById("textList").getElementsByTagName("li");
@@ -34,8 +40,8 @@ function addTextToList() {
 
         // Append the list item to the ul element
         document.getElementById("textList").appendChild(listItem);
+        
         // Clear the input field
         document.getElementById("textInput").value = "";
     }
 }
-
