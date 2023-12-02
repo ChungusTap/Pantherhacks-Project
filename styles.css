@@ -52,7 +52,7 @@ button:hover {
   color: #17252A;
 }
 
-#newList {
+.setButton {
   color: #17252A;
   border-color: #17252A;
 }
