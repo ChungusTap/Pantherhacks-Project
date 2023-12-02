@@ -1,4 +1,3 @@
-
 function clearTextList() {
     // Clear all the list items
     var textList = document.getElementById("textList");
@@ -21,10 +20,17 @@ function editFunction() {
     }
 }
 
+function showListValue() {
+    var listVal = document.getElementById("listValue").value;
+    alert("Entered item: " + listVal);
+    document.getElementById("output").innerHTML = listVal;
+  }
 function toggleItem(index) {
     var listVar = document.getElementById("textList").children[index];
     listVar.classList.toggle("completed");
-}
+
+    console.log("jay is gay");
+  }
 
 function addTextToList() {
     // Get the input value
@@ -50,4 +56,5 @@ function addTextToList() {
         // Clear the input field
         document.getElementById("textInput").value = "";
     }
+    
 }
