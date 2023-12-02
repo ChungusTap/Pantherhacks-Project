@@ -1,13 +1,26 @@
-function myfunction(){
-    var change = document.getElementById("textList")
-    
+function editFunction() {
+    // Get all list items
+    var listItems = document.getElementById("textList").getElementsByTagName("li");
+
+    // Iterate through each list item
+    for (var i = 0; i < listItems.length; i++) {
+        // Prompt the user to edit the item
+        var newText = prompt("Edit item:", listItems[i].textContent);
+
+        // If the user entered a new text and it's not empty, update the list item
+        if (newText !== null && newText.trim() !== "") {
+            listItems[i].textContent = newText;
+        }
+    }
 }
+
 function showListValue() {
     var listVal = document.getElementById("listValue").value;
     alert("Entered item: " + listVal);
     document.getElementById("output").innerHTML = listVal;
-  }
-  function addTextToList() {
+}
+
+function addTextToList() {
     // Get the input value
     var inputValue = document.getElementById("textInput").value;
 
@@ -23,7 +36,6 @@ function showListValue() {
         document.getElementById("textList").appendChild(listItem);
         // Clear the input field
         document.getElementById("textInput").value = "";
-
     }
-    
 }
+
