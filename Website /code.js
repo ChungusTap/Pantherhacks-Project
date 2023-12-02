@@ -1,6 +1,6 @@
 function myfunction(){
-    document.getElementById("button").innerHTML = "Welcome";
-    alert('Button Clicked')
+    var change = document.getElementById("textList")
+    
 }
 function showListValue() {
     var listVal = document.getElementById("listValue").value;
@@ -21,8 +21,9 @@ function showListValue() {
 
         // Append the list item to the ul element
         document.getElementById("textList").appendChild(listItem);
-
         // Clear the input field
         document.getElementById("textInput").value = "";
+
     }
+    
 }
