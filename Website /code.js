@@ -1,3 +1,6 @@
+function my_function(){
+    print ('Hello')
+}
 function clearTextList() {
     // Clear all the list items
     var textList = document.getElementById("textList");
