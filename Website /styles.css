@@ -52,7 +52,7 @@ button:hover {
   color: #17252A;
 }
 
-.setButton {
+.setbutton {
   color: #17252A;
   border-color: #17252A;
 }
@@ -81,10 +81,7 @@ h6 {
 ul {
     list-style-type: none;
   }
-<<<<<<< HEAD:Website /styles.css
 .completed {
   text-decoration: line-through;
   }  
 
-=======
->>>>>>> 543e4623bc0e0c7b2f28b64cb25ce3cb8805d526:styles.css
