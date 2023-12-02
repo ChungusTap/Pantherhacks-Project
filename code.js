@@ -32,21 +32,25 @@ function toggleItem(index) {
     var listVar = document.getElementById("textList").children[index];
     listVar.classList.toggle("completed");
 
-  }
+      }
 
 function addTextToList() {
     // Get the input value
-    var inputValue = document.getElementById("textInput").value;
+    var dateInput = prompt("Enter the date (e.g., DD/MM/YYYY):");
+    
+    // Validate the date format (you may want to implement more robust validation)
 
+    var inputValue = document.getElementById("textInput").value;
+    
     // If the input is not empty, add it to the list
     if (inputValue.trim() !== "") {
         // Create a new list item
         var checklist = document.getElementById("textList");
         var listItem = document.createElement("li");
-
+        
         // Set the text content of the list item
-        listItem.textContent = inputValue;
-
+        listItem.textContent = inputValue + ":" + dateInput;
+        
         // Add click event listener to toggle completion
         listItem.addEventListener("click", function() {
             toggleItem(Array.from(checklist.children).indexOf(listItem));
@@ -54,9 +58,9 @@ function addTextToList() {
 
         // Append the list item to the ul element
         checklist.appendChild(listItem);
-
+        
         // Clear the input field
         document.getElementById("textInput").value = "";
     }
-    
-}
+
+    }
