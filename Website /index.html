@@ -10,7 +10,13 @@
 <body>
     <div id="sets" class="container">
         <h2>My Lists</h2>
-        <button onclick="addNewList()">Add a New List</button>
+        <div>
+            <button onclick="addNewList()">Add a New List</button>
+            <button onclick="filterTasks('Today')">Today</button>
+            <button onclick="filterTasks('Urgent')">Urgent</button>
+            <button onclick="filterTasks('Future')">Future</button>
+            <button onclick="filterTasks('All')">All</button>
+        </div>
     </div>
     <div id="items" class="container">
         <h3>To Do</h3>
@@ -26,6 +32,8 @@
 <footer>
 </footer>
 </html>
+
+
 
 
 
