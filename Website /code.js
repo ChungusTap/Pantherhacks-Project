@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> e97fa32bbca1687183bfbc12545039b59b93ac32
 function clearTextList() {
     // Clear all the list items
     var textList = document.getElementById("textList");
@@ -20,6 +24,7 @@ function editFunction() {
     }
 }
 
+<<<<<<< HEAD
 function showListValue() {
     var listVal = document.getElementById("listValue").value;
     alert("Entered item: " + listVal);
@@ -29,6 +34,12 @@ function toggleItem(index) {
     var listVar = document.getElementById("textList").children[index];
     listVar.classList.toggle("completed");
   }
+=======
+function toggleItem(index) {
+    var listVar = document.getElementById("textList").children[index];
+    listVar.classList.toggle("completed");
+}
+>>>>>>> e97fa32bbca1687183bfbc12545039b59b93ac32
 
 function addTextToList() {
     // Get the input value
@@ -43,15 +54,19 @@ function addTextToList() {
         // Set the text content of the list item
         listItem.textContent = inputValue;
 
+        // Add click event listener to toggle completion
         listItem.addEventListener("click", function() {
             toggleItem(Array.from(checklist.children).indexOf(listItem));
-          });
+        });
 
         // Append the list item to the ul element
         checklist.appendChild(listItem);
+
         // Clear the input field
         document.getElementById("textInput").value = "";
-        
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> e97fa32bbca1687183bfbc12545039b59b93ac32
 }
