@@ -57,11 +57,12 @@ button:hover {
   border-color: #17252A;
   margin: 10px;
   height: 30px;
-  width: 60px;
+  width: 80px;
+  text-align: center
 }
 
 #addList {
-  width: 310px;
+  width: 185px;
 }
 
 .setbutton:hover {
