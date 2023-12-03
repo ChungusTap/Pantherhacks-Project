@@ -38,8 +38,12 @@ function addTextToList() {
     // Get the input value
     var dateInput = prompt("Enter the date (e.g., MM/DD/YYYY):");
     
+    
     // Validate the date format (you may want to implement more robust validation)
-
+    if (!isValidDateFormat(dateInput)) {
+        alert("Invalid date format. Please enter a date in the format MM/DD/YYYY.");
+        return;
+    }
     var inputValue = document.getElementById("textInput").value;
     
     // If the input is not empty, add it to the list
@@ -63,6 +67,51 @@ function addTextToList() {
         document.getElementById("textInput").value = "";
     }
 
+    function isValidDateFormat(dateString) {
+        var regex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$/;
+        return regex.test(dateString);
+    }
+
+    }
+    
+    function sortList() {
+        var checklist = document.getElementById("textList");
+        var listItems = Array.from(checklist.children);
+    
+        // Sort the list items based on date (MM/DD/YYYY format)
+        listItems.sort(function (a, b) {
+            var dateA = new Date(a.textContent.split(":")[1].trim());
+            var dateB = new Date(b.textContent.split(":")[1].trim());
+            return dateA - dateB;
+        });
+    
+        // Clear the current list
+        checklist.innerHTML = "";
+    
+        // Append the sorted list items back to the checklist
+        listItems.forEach(function (item) {
+            checklist.appendChild(item);
+        });
+    }
+    
+    function reverseList() {
+        var checklist = document.getElementById("textList");
+        var listItems = Array.from(checklist.children);
+    
+        // Sort the list items in descending order based on date (MM/DD/YYYY format)
+        listItems.sort(function (a, b) {
+            var dateA = new Date(a.textContent.split(":")[1].trim());
+            var dateB = new Date(b.textContent.split(":")[1].trim());
+            return dateB - dateA;
+        });
+    
+        // Clear the current list
+        checklist.innerHTML = "";
+    
+        // Append the sorted list items back to the checklist
+        listItems.forEach(function (item) {
+            checklist.appendChild(item);
+        });
     }
     function setReminder() {
         const reminderDateTime = document.getElementById('reminder').value;
