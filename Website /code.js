@@ -113,3 +113,33 @@ function addTextToList() {
             checklist.appendChild(item);
         });
     }
+    function setReminder() {
+        const reminderDateTime = document.getElementById('reminder').value;
+        const reminderDate = new Date(reminderDateTime);
+        const currentDate = new Date();
+        const timeDifference = reminderDate - currentDate;
+  
+        if (timeDifference > 0) {
+          // Set a timeout to trigger the reminder
+          setTimeout(() => {
+            showNotification('Reminder', 'Time to do something!');
+          }, timeDifference);
+          
+          alert('Reminder set successfully!');
+        } else {
+          alert('Please select a future date and time for the reminder.');
+        }
+      }
+  
+      function showNotification(title, body) {
+        // Check if the Notification API is supported
+        if ('Notification' in window) {
+          // Request permission to show notifications
+          Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+              // Create a notification
+              new Notification(title, { body });
+            }
+          });
+        }
+      }

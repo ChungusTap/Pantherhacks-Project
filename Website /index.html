@@ -31,11 +31,23 @@
       </script>
 </head>
 <body>
+
+
+  <label for="reminder">Set a Reminder:</label>
+  <input type="datetime-local" id="reminder" name="reminder">
+
+  <button onclick="setReminder()">Set Reminder</button>
     <div id="sets" class="container">
         <h2>My Lists</h2>
         <button class="setbutton" onclick="addNewList()">Add a New List</button>
         <div class="button-group">
+<<<<<<< HEAD
             <button class="setbutton" onclick="filterTasks('Urgent')">Urgent</button>
+=======
+            <button class="setbutton" onclick="filterTasks('Today')">Today</button>
+            <button class="setbutton" onclick="filterTasks('Urgent')">Urgent</button>
+            <button class="setbutton" onclick="filterTasks('Future')">Future</button>
+>>>>>>> addbc5eedaf2aa8599ccf2813c059b782792f96b
             <button class="setbutton" onclick="filterTasks('All')">All</button>
         </div>
     </div>
@@ -46,7 +58,7 @@
         <button onclick="sortList()">Today</button>
         <button onclick="reverseList()">Future</button>
         <button onclick="addTextToList()">Add to List</button>
-        <button onclick="editFunction()"><img src="edit.png" alt="edit"></button>
+        <button onclick="editFunction()">Edit</button>
         <button onclick="clearTextList()">Clear Text</button>
         <button onclick="navigateToNewPage()">Go to New Page</button>
         <ul id="textList"></ul>
