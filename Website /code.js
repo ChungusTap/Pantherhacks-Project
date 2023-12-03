@@ -91,7 +91,6 @@ function addTextToList() {
             checklist.appendChild(item);
         });
     }
-<<<<<<< Updated upstream
     
     function reverseList() {
         var checklist = document.getElementById("textList");
@@ -145,7 +144,6 @@ function addTextToList() {
           });
         }
       }
-=======
     function setReminder() {
         // Get the values from the input boxes
         var reminderText = document.getElementById('reminderInput').value;
@@ -166,4 +164,3 @@ function addTextToList() {
     function editReminder() {
        
     }
->>>>>>> Stashed changes
