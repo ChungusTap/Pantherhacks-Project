@@ -29,21 +29,9 @@
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
       </script>
-    <h1>Reminder App</h1>
-
-    <label for="reminderInput">Set a reminder:</label>
-    <input type="text" id="reminderInput" placeholder="Enter your reminder..." onclick="editReminder()">
-
-    <label for="reminderDate">Set a date:</label>
-    <input type="datetime-local" id="reminderDate">
-
 </head>
 <body>
     <div id="sets" class="container">
-        <label for="reminder">Set a Reminder:</label>
-            <input type="datetime-local" id="reminder" name="reminder">
-
-            <button onclick="setReminder()">Set Reminder</button>
         <h2>My Lists</h2>
         <button class="setbutton" onclick="addNewList()">Add a New List</button>
         <div class="button-group">
@@ -61,11 +49,8 @@
         <button onclick="reverseList()">Future</button>
         <button onclick="addTextToList()">Add to List</button>
         <button onclick="editFunction()">Edit</button>
+        
         <button onclick="setReminder()">Set Reminder</button>
-        <input type="text" id="reminderInput" placeholder="Enter your reminder..." onclick="editReminder()">
-
-        <label for="reminderDate">Set a date:</label>
-        <input type="datetime-local" id="reminderDate">
         <button onclick="clearTextList()">Clear Text</button>
         <button onclick="navigateToNewPage()">Go to New Page</button>
         <ul id="textList"></ul>
