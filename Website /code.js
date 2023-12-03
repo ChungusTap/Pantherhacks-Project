@@ -38,7 +38,7 @@ function toggleItem(index) {
 function addTextToList() {
   // Get the input and reminder date values
   var inputValue = document.getElementById("textInput").value;
-  var dateInput = document.getElementById('reminder').value;
+  var dateInput = getReminderDate()
 
   // Validate the date format (MM/DD/YY)
   if (!isValidDateFormat(dateInput)) {
@@ -148,10 +148,26 @@ function showNotification(title, body) {
   }
 }
 
-function isValidDateFormat(dateString) {
-  // Define the regular expression for MM/DD/YY format
-  var dateFormatRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{2}$/;
+// Function to get the reminder date from setReminder and format it as MM/DD/YYYY
+function getReminderDate() {
+  // This assumes setReminder sets the reminderDate variable
+  var reminderDate = ""; // Replace this with the actual variable used in setReminder
+  var formattedReminderDate = "";
 
-  // Test the date string against the regular expression
-  return dateFormatRegex.test(dateString);
+  if (reminderDate) {
+      var reminderDateObject = new Date(reminderDate);
+      formattedReminderDate = reminderDateObject.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit'
+      });
+  }
+
+  return formattedReminderDate;
+}
+
+// Function to display the reminder date in the displayer
+function displayReminderDate(reminderDate) {
+  var displayer = document.getElementById("reminderDisplayer");
+  displayer.textContent = "Reminder Date: " + reminderDate;
 }
