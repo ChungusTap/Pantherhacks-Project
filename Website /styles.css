@@ -55,6 +55,18 @@ button:hover {
 .setbutton {
   color: #17252A;
   border-color: #17252A;
+  margin: 10px;
+  height: 30px;
+  width: 60px;
+}
+
+#addList {
+  width: 310px;
+}
+
+.setbutton:hover {
+  background-color: #17272A;
+  color: #DEF2F1;
 }
 
 li {
