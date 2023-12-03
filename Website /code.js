@@ -35,10 +35,68 @@ function toggleItem(index) {
   listVar.classList.toggle("completed");
 }
 
+function reverseList() {
+  var checklist = document.getElementById("textList");
+  var listItems = Array.from(checklist.children);
+
+  // Sort the list items in descending order based on date (MM/DD/YY format)
+  listItems.sort(function (a, b) {
+      var dateA = new Date(a.textContent.split(":")[1].trim());
+      var dateB = new Date(b.textContent.split(":")[1].trim());
+      return dateB - dateA;
+  });
+
+  // Clear the current list
+  checklist.innerHTML = "";
+
+  // Append the sorted list items back to the checklist
+  listItems.forEach(function (item) {
+      checklist.appendChild(item);
+  });
+}
+
+function setReminder() {
+  // Get the selected date
+  var selectedDate = document.getElementById("reminderDate").value;
+  var formattedDate = formatToMMDDYYYY(selectedDate);
+  return formattedDate;
+}
+
+
+function showNotification(title, body) {
+  // Check if the Notification API is supported
+  if ('Notification' in window) {
+      // Request permission to show notifications
+      Notification.requestPermission().then(permission => {
+          if (permission === 'granted') {
+              // Create a notification
+              new Notification(title, { body });
+          }
+      });
+  }
+}
+
+// Function to get the reminder date from setReminder and format it as MM/DD/YYYY
+function formatToMMDDYYYY(dateString) {
+  var dateObject = new Date(dateString);
+  return dateObject.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+  });
+}
+
+
+// Function to display the reminder date in the displayer
+function displayReminderDate(reminderDate) {
+  var displayer = document.getElementById("reminderDisplayer");
+  displayer.textContent = "Reminder Date: " + reminderDate;
+}
+
 function addTextToList() {
   // Get the input and reminder date values
   var inputValue = document.getElementById("textInput").value;
-  var dateInput = getReminderDate()
+  var dateInput = setReminder();
 
   // Validate the date format (MM/DD/YY)
   if (!isValidDateFormat(dateInput)) {
@@ -92,70 +150,4 @@ function sortList() {
   listItems.forEach(function (item) {
       checklist.appendChild(item);
   });
-}
-
-function reverseList() {
-  var checklist = document.getElementById("textList");
-  var listItems = Array.from(checklist.children);
-
-  // Sort the list items in descending order based on date (MM/DD/YY format)
-  listItems.sort(function (a, b) {
-      var dateA = new Date(a.textContent.split(":")[1].trim());
-      var dateB = new Date(b.textContent.split(":")[1].trim());
-      return dateB - dateA;
-  });
-
-  // Clear the current list
-  checklist.innerHTML = "";
-
-  // Append the sorted list items back to the checklist
-  listItems.forEach(function (item) {
-      checklist.appendChild(item);
-  });
-}
-
-function setReminder() {
-  // Get the selected date
-  var selectedDate = document.getElementById("reminderDate").value;
-
-  // Display or process the selected date as needed
-  alert("Reminder set for: " + selectedDate);
-}
-
-
-function showNotification(title, body) {
-  // Check if the Notification API is supported
-  if ('Notification' in window) {
-      // Request permission to show notifications
-      Notification.requestPermission().then(permission => {
-          if (permission === 'granted') {
-              // Create a notification
-              new Notification(title, { body });
-          }
-      });
-  }
-}
-
-// Function to get the reminder date from setReminder and format it as MM/DD/YYYY
-function getReminderDate() {
-  // This assumes setReminder sets the reminderDate variable
-  var reminderDate = ""; // Replace this with the actual variable used in setReminder
-  var formattedReminderDate = "";
-
-  if (reminderDate) {
-      var reminderDateObject = new Date(reminderDate);
-      formattedReminderDate = reminderDateObject.toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: '2-digit',
-          day: '2-digit'
-      });
-  }
-
-  return formattedReminderDate;
-}
-
-// Function to display the reminder date in the displayer
-function displayReminderDate(reminderDate) {
-  var displayer = document.getElementById("reminderDisplayer");
-  displayer.textContent = "Reminder Date: " + reminderDate;
 }
