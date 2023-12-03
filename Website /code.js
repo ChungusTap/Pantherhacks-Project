@@ -35,6 +35,26 @@ function toggleItem(index) {
   listVar.classList.toggle("completed");
 }
 
+function sortList() {
+  var checklist = document.getElementById("textList");
+  var listItems = Array.from(checklist.children);
+
+  // Sort the list items based on date (MM/DD/YY format)
+  listItems.sort(function (a, b) {
+      var dateA = new Date(a.textContent.split(":")[1].trim());
+      var dateB = new Date(b.textContent.split(":")[1].trim());
+      return dateA - dateB;
+  });
+
+  // Clear the current list
+  checklist.innerHTML = "";
+
+  // Append the sorted list items back to the checklist
+  listItems.forEach(function (item) {
+      checklist.appendChild(item);
+  });
+}
+
 function reverseList() {
   var checklist = document.getElementById("textList");
   var listItems = Array.from(checklist.children);
@@ -98,12 +118,6 @@ function addTextToList() {
   var inputValue = document.getElementById("textInput").value;
   var dateInput = setReminder();
 
-  // Validate the date format (MM/DD/YY)
-  if (!isValidDateFormat(dateInput)) {
-      alert("Invalid date format. Please enter a date in the format MM/DD/YY.");
-      return;
-  }
-
   // If the input is not empty, add it to the sorted list
   if (inputValue.trim() !== "") {
       // Create a new list item
@@ -130,24 +144,4 @@ function addTextToList() {
       // Clear the input field
       document.getElementById("textInput").value = "";
   }
-}
-
-function sortList() {
-  var checklist = document.getElementById("textList");
-  var listItems = Array.from(checklist.children);
-
-  // Sort the list items based on date (MM/DD/YY format)
-  listItems.sort(function (a, b) {
-      var dateA = new Date(a.textContent.split(":")[1].trim());
-      var dateB = new Date(b.textContent.split(":")[1].trim());
-      return dateA - dateB;
-  });
-
-  // Clear the current list
-  checklist.innerHTML = "";
-
-  // Append the sorted list items back to the checklist
-  listItems.forEach(function (item) {
-      checklist.appendChild(item);
-  });
 }
