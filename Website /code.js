@@ -114,26 +114,14 @@ function reverseList() {
   });
 }
 
-function setReminder(reminderDate) {
-  const reminderDateTime = reminderDate + " 00:00:00"; // Assuming reminder time is midnight
-  const reminderDateObject = new Date(reminderDateTime);
-  const currentDate = new Date();
-  const timeDifference = reminderDateObject - currentDate;
+function setReminder() {
+  // Get the selected date
+  var selectedDate = document.getElementById("reminderDate").value;
 
-  if (timeDifference > 0) {
-      // Format the reminder date as MM/DD/YYYY
-      const formattedReminderDate = reminderDateObject.toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: '2-digit',
-          day: '2-digit'
-      });
-
-      // Set a timeout to trigger the reminder
-      setTimeout(() => {
-          showNotification('Reminder', `Time to do something on ${formattedReminderDate}!`);
-      }, timeDifference);
-  }
+  // Display or process the selected date as needed
+  alert("Reminder set for: " + selectedDate);
 }
+
 
 function showNotification(title, body) {
   // Check if the Notification API is supported
