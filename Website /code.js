@@ -40,9 +40,9 @@ function addTextToList() {
   var inputValue = document.getElementById("textInput").value;
   var dateInput = document.getElementById('reminder').value;
 
-  // Validate the date format (you may want to implement more robust validation)
+  // Validate the date format (MM/DD/YY)
   if (!isValidDateFormat(dateInput)) {
-      alert("Invalid date format. Please enter a date in the format MM/DD/YYYY.");
+      alert("Invalid date format. Please enter a date in the format MM/DD/YY.");
       return;
   }
 
@@ -73,56 +73,12 @@ function addTextToList() {
       document.getElementById("textInput").value = "";
   }
 }
-    function sortList() {
-        var checklist = document.getElementById("textList");
-        var listItems = Array.from(checklist.children);
-    
-        // Sort the list items based on date (MM/DD/YYYY format)
-        listItems.sort(function (a, b) {
-            var dateA = new Date(a.textContent.split(":")[1].trim());
-            var dateB = new Date(b.textContent.split(":")[1].trim());
-            return dateA - dateB;
-        });
-    
-        // Clear the current list
-        checklist.innerHTML = "";
-    
-        // Append the sorted list items back to the checklist
-        listItems.forEach(function (item) {
-            checklist.appendChild(item);
-        });
-    }
-    
-    function reverseList() {
-        var checklist = document.getElementById("textList");
-        var listItems = Array.from(checklist.children);
-    
-        // Sort the list items in descending order based on date (MM/DD/YYYY format)
-        listItems.sort(function (a, b) {
-            var dateA = new Date(a.textContent.split(":")[1].trim());
-            var dateB = new Date(b.textContent.split(":")[1].trim());
-            return dateB - dateA;
-        });
-    
-        // Clear the current list
-        checklist.innerHTML = "";
-    
-        // Append the sorted list items back to the checklist
-        listItems.forEach(function (item) {
-            checklist.appendChild(item);
-        });
-    }
-    function setReminder(reminderDate) {
-        const reminderDateTime = reminderDate + " 00:00:00"; // Assuming reminder time is midnight
-        const reminderDateObject = new Date(reminderDateTime);
-        const currentDate = new Date();
-        const timeDifference = reminderDateObject - currentDate;
 
 function sortList() {
   var checklist = document.getElementById("textList");
   var listItems = Array.from(checklist.children);
 
-  // Sort the list items based on date (MM/DD/YYYY format)
+  // Sort the list items based on date (MM/DD/YY format)
   listItems.sort(function (a, b) {
       var dateA = new Date(a.textContent.split(":")[1].trim());
       var dateB = new Date(b.textContent.split(":")[1].trim());
@@ -142,53 +98,7 @@ function reverseList() {
   var checklist = document.getElementById("textList");
   var listItems = Array.from(checklist.children);
 
-  // Sort the list items in descending order based on date (MM/DD/YYYY format)
-  listItems.sort(function (a, b) {
-      var dateA = new Date(a.textContent.split(":")[1].trim());
-      var dateB = new Date(b.textContent.split(":")[1].trim());
-      return dateB - dateA;
-  });
-
-  // Clear the current list
-  checklist.innerHTML = "";
-
-  // Append the sorted list items back to the checklist
-  listItems.forEach(function (item) {
-      checklist.appendChild(item);
-  });
-}
-
-function setReminder(reminderDate) {
-  const reminderDateTime = reminderDate + " 00:00:00"; // Assuming reminder time is midnight
-  const reminderDateObject = new Date(reminderDateTime);
-  const currentDate = new Date();
-  const timeDifference = reminderDateObject - currentDate;
-
-function sortList() {
-  var checklist = document.getElementById("textList");
-  var listItems = Array.from(checklist.children);
-
-  // Sort the list items based on date (MM/DD/YYYY format)
-  listItems.sort(function (a, b) {
-      var dateA = new Date(a.textContent.split(":")[1].trim());
-      var dateB = new Date(b.textContent.split(":")[1].trim());
-      return dateA - dateB;
-  });
-
-  // Clear the current list
-  checklist.innerHTML = "";
-
-  // Append the sorted list items back to the checklist
-  listItems.forEach(function (item) {
-      checklist.appendChild(item);
-  });
-}
-
-function reverseList() {
-  var checklist = document.getElementById("textList");
-  var listItems = Array.from(checklist.children);
-
-  // Sort the list items in descending order based on date (MM/DD/YYYY format)
+  // Sort the list items in descending order based on date (MM/DD/YY format)
   listItems.sort(function (a, b) {
       var dateA = new Date(a.textContent.split(":")[1].trim());
       var dateB = new Date(b.textContent.split(":")[1].trim());
@@ -239,6 +149,9 @@ function showNotification(title, body) {
 }
 
 function isValidDateFormat(dateString) {
-  // Implement your date format validation logic here
-  return true; // Placeholder, update as needed
+  // Define the regular expression for MM/DD/YY format
+  var dateFormatRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{2}$/;
+
+  // Test the date string against the regular expression
+  return dateFormatRegex.test(dateString);
 }
