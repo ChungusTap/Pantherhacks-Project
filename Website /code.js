@@ -91,6 +91,7 @@ function addTextToList() {
             checklist.appendChild(item);
         });
     }
+<<<<<<< Updated upstream
     
     function reverseList() {
         var checklist = document.getElementById("textList");
@@ -144,3 +145,25 @@ function addTextToList() {
           });
         }
       }
+=======
+    function setReminder() {
+        // Get the values from the input boxes
+        var reminderText = document.getElementById('reminderInput').value;
+        var reminderDate = document.getElementById('reminderDate').value;
+
+        // Check if the input is not empty
+        if (reminderText.trim() !== '' && reminderDate.trim() !== '') {
+            // Set a timeout to display an alert with the reminder and date after a certain time (in milliseconds)
+            var timeoutDuration = 5000; // 5000 milliseconds = 5 seconds
+            setTimeout(function() {
+                alert('Reminder: ' + reminderText + '\nDate: ' + reminderDate);
+            }, timeoutDuration);
+        } else {
+            alert('Please enter both reminder and date.');
+        }
+    }
+
+    function editReminder() {
+       
+    }
+>>>>>>> Stashed changes
