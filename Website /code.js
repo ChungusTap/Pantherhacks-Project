@@ -35,46 +35,43 @@ function toggleItem(index) {
       }
 
 function addTextToList() {
-    // Get the input value
-    var dateInput = prompt("Enter the date (e.g., MM/DD/YYYY):");
-    
-    
+    // Get the input and reminder date values
+    var inputValue = document.getElementById("textInput").value;
+    var dateInput = document.getElementById('reminder').value;
+
     // Validate the date format (you may want to implement more robust validation)
     if (!isValidDateFormat(dateInput)) {
         alert("Invalid date format. Please enter a date in the format MM/DD/YYYY.");
         return;
     }
-    var inputValue = document.getElementById("textInput").value;
-    
-    // If the input is not empty, add it to the list
+
+    // If the input is not empty, add it to the sorted list
     if (inputValue.trim() !== "") {
         // Create a new list item
         var checklist = document.getElementById("textList");
         var listItem = document.createElement("li");
-        
+
         // Set the text content of the list item
-        listItem.textContent = inputValue + ":" + dateInput;
-        
+        listItem.textContent = inputValue + ": " + dateInput;
+
         // Add click event listener to toggle completion
-        listItem.addEventListener("click", function() {
+        listItem.addEventListener("click", function () {
             toggleItem(Array.from(checklist.children).indexOf(listItem));
         });
 
         // Append the list item to the ul element
         checklist.appendChild(listItem);
-        
+
+        // Display the reminder date in the displayer
+        displayReminderDate(dateInput);
+
+        // Set the reminder for the new item
+        setReminder(dateInput);
+
         // Clear the input field
         document.getElementById("textInput").value = "";
     }
-
-    function isValidDateFormat(dateString) {
-        var regex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$/;
-        return regex.test(dateString);
-    }
-<<<<<<< HEAD
-
-    }
-    
+}
     function sortList() {
         var checklist = document.getElementById("textList");
         var listItems = Array.from(checklist.children);
@@ -114,25 +111,26 @@ function addTextToList() {
             checklist.appendChild(item);
         });
     }
-=======
->>>>>>> addbc5eedaf2aa8599ccf2813c059b782792f96b
-    function setReminder() {
-        const reminderDateTime = document.getElementById('reminder').value;
-        const reminderDate = new Date(reminderDateTime);
+    function setReminder(reminderDate) {
+        const reminderDateTime = reminderDate + " 00:00:00"; // Assuming reminder time is midnight
+        const reminderDateObject = new Date(reminderDateTime);
         const currentDate = new Date();
-        const timeDifference = reminderDate - currentDate;
-  
+        const timeDifference = reminderDateObject - currentDate;
+
         if (timeDifference > 0) {
-          // Set a timeout to trigger the reminder
-          setTimeout(() => {
-            showNotification('Reminder', 'Time to do something!');
-          }, timeDifference);
-          
-          alert('Reminder set successfully!');
-        } else {
-          alert('Please select a future date and time for the reminder.');
+            // Format the reminder date as MM/DD/YYYY
+            const formattedReminderDate = reminderDateObject.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            });
+
+            // Set a timeout to trigger the reminder
+            setTimeout(() => {
+                showNotification('Reminder', `Time to do something on ${formattedReminderDate}!`);
+            }, timeDifference);
         }
-      }
+    }
   
       function showNotification(title, body) {
         // Check if the Notification API is supported
